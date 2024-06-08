@@ -113,6 +113,7 @@ public class FileStorageService extends ApplicationService {
         }
     }
 
+    // Service responses
     private static class FileStorageResponseWrite extends ResponseService {
         public Path getFilePath() {
             return filePath;
@@ -137,6 +138,7 @@ public class FileStorageService extends ApplicationService {
         private byte[] fileBytes;
     }
 
+    // Utils
     private static class UserFileOptions {
         public final static String folderName = "UserFile";
         private final static List<String> permittedExtensions = Arrays.asList(".pdf", ".csv", ".docx", ".json", ".png", ".jpeg");

@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.UserDTO;
+import com.example.demo.dtos.UserDtos;
 import com.example.demo.models.User;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,12 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping(path = "/{id}")
-    public UserDTO.GetOut get(UserDTO.GetIn userParam) {
+    public UserDtos.GetOut get(UserDtos.GetIn userParam) {
         User newUser = new User();
         newUser.setFullName("Didier");
         userRepository.save(newUser);
 
-        return new UserDTO.GetOut(userParam.id(), "Didier");
+        return new UserDtos.GetOut(userParam.id(), "Didier");
     }
 
     @GetMapping(path="/")

@@ -1,6 +1,6 @@
-package com.example.demo.dto;
+package com.example.demo.dtos;
 
-public class UserDTO {
+public class UserDtos {
     public record GetIn(long id) {};
     public record GetOut(long id, String name) {};
 
