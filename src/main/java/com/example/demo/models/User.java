@@ -8,23 +8,15 @@ import java.util.List;
 
 @Entity
 public class User {
-    private Integer idRes;
-
+    private int idRes;
     private String fullName;
-
     private String refreshToken;
-
     private Date refreshTokenExpiry;
-
     private List<EUserRoles> roles;
-
     private Collection<ProjectUser> projectUsers;
-
-    private Collection<ProjectFile> ProjectFiles;
-
-    private Collection<UserFile> UserFiles;
-
-    private Collection<Sketch> Sketches;
+    private Collection<ProjectFile> projectFiles;
+    private Collection<UserFile> userFiles;
+    private Collection<Sketch> sketches;
 
     public enum EUserRoles
     {
@@ -81,26 +73,26 @@ public class User {
     }
 
     public Collection<ProjectFile> getProjectFiles() {
-        return ProjectFiles;
+        return projectFiles;
     }
 
     public void setProjectFiles(Collection<ProjectFile> projectFiles) {
-        ProjectFiles = projectFiles;
+        this.projectFiles = projectFiles;
     }
 
     public Collection<UserFile> getUserFiles() {
-        return UserFiles;
+        return userFiles;
     }
 
     public void setUserFiles(Collection<UserFile> userFiles) {
-        UserFiles = userFiles;
+        this.userFiles = userFiles;
     }
 
     public Collection<Sketch> getSketches() {
-        return Sketches;
+        return sketches;
     }
 
     public void setSketches(Collection<Sketch> sketches) {
-        Sketches = sketches;
+        this.sketches = sketches;
     }
 }
