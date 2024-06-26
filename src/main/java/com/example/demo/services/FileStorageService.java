@@ -1,5 +1,8 @@
 package com.example.demo.services;
 
+import com.example.demo.configs.StorageConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -13,9 +16,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class FileStorageService extends ApplicationService {
 
-    public FileStorageService() {}
+    private final StorageConfig storageConfig;
+
+    @Autowired
+    public FileStorageService(StorageConfig storageConfig) {
+        this.storageConfig = storageConfig;
+    }
 
     public FileStorageResponseWrite writeFileToStorageAsync(MultipartFile file, String relativePath) {
         FileStorageResponseWrite response = new FileStorageResponseWrite();
@@ -87,7 +96,7 @@ public class FileStorageService extends ApplicationService {
     }
 
     private String getMainPathStorage() {
-        return "";
+        return this.storageConfig.getPath();
     }
 
     private static String getRandomFilename() {
@@ -114,7 +123,9 @@ public class FileStorageService extends ApplicationService {
     }
 
     // Service responses
-    private static class FileStorageResponseWrite extends ResponseService {
+    public static class FileStorageResponseWrite extends ResponseService {
+        private Path filePath;
+
         public Path getFilePath() {
             return filePath;
         }
@@ -122,11 +133,9 @@ public class FileStorageService extends ApplicationService {
         public void setFilePath(Path filePath) {
             this.filePath = filePath;
         }
-
-        private Path filePath;
     }
 
-    private static class FileStorageResponseGet extends ResponseService {
+    public static class FileStorageResponseGet extends ResponseService {
         public byte[] getFileBytes() {
             return fileBytes;
         }

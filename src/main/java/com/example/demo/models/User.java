@@ -1,6 +1,9 @@
 package com.example.demo.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Collection;
 import java.util.Date;
@@ -8,7 +11,10 @@ import java.util.List;
 
 @Entity
 public class User {
-    private int idRes;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long idRes;
     private String fullName;
     private String refreshToken;
     private Date refreshTokenExpiry;
@@ -24,11 +30,19 @@ public class User {
         Worker
     }
 
-    public Integer getIdRes() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdRes() {
         return idRes;
     }
 
-    public void setIdRes(Integer idRes) {
+    public void setIdRes(Long idRes) {
         this.idRes = idRes;
     }
 

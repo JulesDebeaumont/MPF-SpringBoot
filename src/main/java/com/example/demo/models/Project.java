@@ -1,13 +1,17 @@
 package com.example.demo.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Collection;
 import java.util.Date;
 
 @Entity
 public class Project {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String description;
     private Date deadline;

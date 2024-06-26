@@ -2,10 +2,12 @@ package com.example.demo.services;
 
 import com.example.demo.utils.HttpUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@Service
 public class NoyauSihService extends ApplicationService{
     private final String casUrl = "https://cas.chu-reims.fr";
     private final String noyauSihUrl = "http://noyausih.domchurs.ad";

@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.utils.HttpUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -13,6 +14,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Service
 public class MailBoxService extends ApplicationService {
     private final String zimbraUrl = "https://mail.chu-reims.fr/";
     private final String zimbraDomain = "mail.chu-reims.fr";

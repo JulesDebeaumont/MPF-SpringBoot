@@ -8,7 +8,7 @@ public abstract class ApplicationService {
 
     // TODO factory pattern as static method ?
 
-    protected static class ResponseService {
+    public static class ResponseService {
         private boolean isSuccess;
         private List<String> errors;
 
